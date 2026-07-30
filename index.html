@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Imersão Networking Experience | 25 e 26 de Setembro — Diego Nubling</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta name="description" content="A 2ª edição do encontro que reúne empresários de resultado para conexões que geram oportunidades reais. 25 e 26 de setembro, com Diego Nubling.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -120,7 +119,7 @@
   .hero .ring-bg.r2{width:640px;height:640px;bottom:-420px;right:-160px;border-color:rgba(201,161,90,0.14);}
 
   .hero-logo{
-    width:260px;height:auto;margin-bottom:36px;
+    width:128px;height:auto;margin-bottom:36px;
     filter:drop-shadow(0 0 40px rgba(201,161,90,0.25));
     animation:fadeUp 1s ease both;
   }
@@ -267,6 +266,21 @@
 
   /* ---------- gallery ---------- */
   .gallery{background:var(--black);}
+  .recap-video{
+    position:relative;margin-bottom:56px;
+    aspect-ratio:16/9;background:var(--charcoal);
+    border:1px solid rgba(201,161,90,0.22);overflow:hidden;
+  }
+  .recap-video video{width:100%;height:100%;object-fit:cover;display:block;}
+  .recap-video .g-placeholder{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    font-size:12px;letter-spacing:0.14em;
+  }
+  .recap-tag{
+    position:absolute;top:20px;left:20px;z-index:2;
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.14em;
+    text-transform:uppercase;color:#241a05;background:var(--gold-metal);padding:8px 16px;
+  }
   .gallery-grid{
     display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px;
   }
@@ -286,12 +300,17 @@
   .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
   .test-card{
     background:var(--charcoal);border:1px solid rgba(201,161,90,0.14);
-    padding:38px 32px;
+    overflow:hidden;
   }
-  .test-card .quote-mark{font-family:'Cormorant Garamond',serif;font-size:54px;color:var(--gold-2);line-height:0.6;display:block;margin-bottom:14px;}
-  .test-card p.quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.6;color:var(--cream);min-height:96px;}
-  .test-who{margin-top:24px;display:flex;align-items:center;gap:12px;}
-  .test-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold-metal);flex-shrink:0;}
+  .test-video{
+    position:relative;aspect-ratio:9/16;background:#000;
+  }
+  .test-video video{width:100%;height:100%;object-fit:cover;display:block;}
+  .test-video .g-placeholder{
+    width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+    font-size:12px;letter-spacing:0.1em;
+  }
+  .test-who{padding:20px 22px;display:flex;align-items:center;gap:12px;}
   .test-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--white);}
   .test-role{font-size:12px;color:var(--muted);margin-top:2px;}
   @media(max-width:900px){.test-grid{grid-template-columns:1fr;}}
@@ -350,7 +369,8 @@
   <section class="hero">
     <div class="ring-bg r1"></div>
     <div class="ring-bg r2"></div>
-       <div class="eyebrow">Imersão Networking Experience &nbsp;·&nbsp; 2ª Edição</div>
+    <img src="assets/logo.png" alt="Imersão Networking Experience — Diego Nubling" class="hero-logo">
+    <div class="eyebrow">Imersão Networking Experience &nbsp;·&nbsp; 2ª Edição</div>
     <h1>Conexões que <span class="gold">geram oportunidades</span></h1>
     <p class="sub">Dois dias reunindo empresários de resultado em Florianópolis para construir, ao vivo, as parcerias que uma vida inteira de tentativa e erro sozinho não constrói. Foi de um único insight, na 1ª edição, que participantes faturaram mais de R$100 mil na semana seguinte.</p>
     <div class="date-badge">
@@ -549,19 +569,29 @@
         <p>Fotos e vídeos de quem já viveu a experiência.</p>
       </div>
       <!--
-        INSTRUÇÕES: troque cada <div class="g-item"> por uma tag <img> ou <video>
-        apontando para os arquivos reais da 1ª edição, salvos em /assets/galeria/.
-        Exemplo:
-          <div class="g-item wide"><img src="assets/galeria/foto-01.jpg" alt="Churrasco da 1ª edição"></div>
-          <div class="g-item"><video src="assets/galeria/video-01.mp4" muted autoplay loop playsinline></video></div>
+        INSTRUÇÕES:
+        1) Vídeo de abertura (takes/recap editado da 1ª edição): troque o
+           conteúdo de .recap-video pela tag <video>, apontando para o arquivo
+           final em /assets/galeria/recap-1a-edicao.mp4. Exemplo:
+             <div class="recap-video">
+               <span class="recap-tag">Como foi a 1ª edição</span>
+               <video src="assets/galeria/recap-1a-edicao.mp4" controls poster="assets/galeria/recap-capa.jpg"></video>
+             </div>
+        2) Grid de fotos: troque cada <div class="g-item"> por uma tag <img>
+           apontando para as fotos reais, salvas em /assets/galeria/. Exemplo:
+             <div class="g-item wide"><img src="assets/galeria/foto-01.jpg" alt="Churrasco da 1ª edição"></div>
       -->
+      <div class="recap-video">
+        <span class="recap-tag">Como foi a 1ª edição</span>
+        <div class="g-placeholder">Vídeo de abertura — takes editados da 1ª edição</div>
+      </div>
       <div class="gallery-grid">
         <div class="g-item wide"><div class="g-placeholder">Foto do churrasco<br>1ª edição</div></div>
         <div class="g-item"><div class="g-placeholder">Foto do networking</div></div>
-        <div class="g-item tall"><div class="g-placeholder">Vídeo do hotseat</div></div>
+        <div class="g-item tall"><div class="g-placeholder">Foto do hotseat</div></div>
         <div class="g-item"><div class="g-placeholder">Foto do palco</div></div>
         <div class="g-item"><div class="g-placeholder">Foto de grupo</div></div>
-        <div class="g-item wide"><div class="g-placeholder">Vídeo do passeio de barco</div></div>
+        <div class="g-item wide"><div class="g-placeholder">Foto do passeio de barco</div></div>
       </div>
     </div>
   </section>
@@ -572,20 +602,21 @@
       <div class="section-head">
         <div class="divider"><span class="rule"></span><span class="eyebrow">Quem já viveu</span><span class="rule flip"></span></div>
         <h2>Depoimentos da 1ª edição</h2>
-        <p>Substitua pelos depoimentos reais de quem participou.</p>
+        <p>Vídeos reais de quem participou.</p>
       </div>
       <!--
-        INSTRUÇÕES: troque o texto de cada .quote pelo depoimento real,
-        e o test-name / test-role pelo nome e empresa da pessoa.
-        Se tiver foto do participante, troque a div .test-avatar por
-        <img class="test-avatar" src="assets/depoimentos/nome.jpg">
+        INSTRUÇÕES: troque o conteúdo de cada .test-video pela tag <video>
+        apontando para o depoimento real, salvo em /assets/depoimentos/.
+        Troque também test-name / test-role pelo nome e empresa da pessoa.
+        Exemplo:
+          <div class="test-video">
+            <video src="assets/depoimentos/nome-01.mp4" controls poster="assets/depoimentos/nome-01-capa.jpg"></video>
+          </div>
       -->
       <div class="test-grid">
         <div class="test-card">
-          <span class="quote-mark">“</span>
-          <p class="quote">Depoimento real do participante sobre o impacto do evento na sua vida ou negócio.</p>
+          <div class="test-video"><div class="g-placeholder">Vídeo depoimento</div></div>
           <div class="test-who">
-            <div class="test-avatar"></div>
             <div>
               <div class="test-name">Nome do Participante</div>
               <div class="test-role">Cargo, Empresa</div>
@@ -593,10 +624,8 @@
           </div>
         </div>
         <div class="test-card">
-          <span class="quote-mark">“</span>
-          <p class="quote">Depoimento real do participante sobre o impacto do evento na sua vida ou negócio.</p>
+          <div class="test-video"><div class="g-placeholder">Vídeo depoimento</div></div>
           <div class="test-who">
-            <div class="test-avatar"></div>
             <div>
               <div class="test-name">Nome do Participante</div>
               <div class="test-role">Cargo, Empresa</div>
@@ -604,10 +633,8 @@
           </div>
         </div>
         <div class="test-card">
-          <span class="quote-mark">“</span>
-          <p class="quote">Depoimento real do participante sobre o impacto do evento na sua vida ou negócio.</p>
+          <div class="test-video"><div class="g-placeholder">Vídeo depoimento</div></div>
           <div class="test-who">
-            <div class="test-avatar"></div>
             <div>
               <div class="test-name">Nome do Participante</div>
               <div class="test-role">Cargo, Empresa</div>
