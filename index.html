@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imersão Networking Experience | 25 e 26 de Setembro — Diego Nubling</title>
+<meta name="description" content="A 2ª edição do encontro que reúne empresários de resultado para conexões que geram oportunidades reais. 25 e 26 de setembro, com Diego Nubling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black: #0a0a09;
+    --charcoal: #131210;
+    --charcoal-2: #1c1a16;
+    --gold-1: #e8cd8e;
+    --gold-2: #c9a15a;
+    --gold-3: #8b6914;
+    --gold-metal: linear-gradient(135deg, #f4e2b8 0%, #d4af6a 35%, #9c7a34 65%, #e8cd8e 100%);
+    --cream: #f2ede1;
+    --white: #ffffff;
+    --muted: #9a927f;
+    --muted-2: #5c584d;
+    --line: rgba(201,161,90,0.28);
+    --maxw: 1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold-2);color:var(--black);}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+
+  h1,h2,h3{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:var(--white);
+    line-height:1.08;
+  }
+  .eyebrow{
+    font-family:'Montserrat',sans-serif;
+    font-weight:500;
+    letter-spacing:0.42em;
+    text-transform:uppercase;
+    font-size:12.5px;
+    color:var(--gold-1);
+  }
+  .serif{
+    font-family:'Cormorant Garamond',serif;
+    font-style:italic;
+    font-weight:400;
+    color:var(--muted);
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  /* ---------- decorative ring / divider signature ---------- */
+  .divider{
+    display:flex;align-items:center;justify-content:center;gap:18px;
+    margin-bottom:22px;
+  }
+  .divider .rule{height:1px;width:56px;background:linear-gradient(90deg,transparent,var(--gold-2));}
+  .divider .rule.flip{background:linear-gradient(90deg,var(--gold-2),transparent);}
+
+  .ring-bg{
+    position:absolute;pointer-events:none;
+    border-radius:50%;
+    border:1px solid var(--line);
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(10,10,9,0.72);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(201,161,90,0.14);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:var(--maxw);margin:0 auto;
+  }
+  .nav-brand{display:flex;align-items:center;gap:12px;}
+  .nav-brand img{height:34px;width:auto;}
+  .nav-brand span{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:0.12em;font-size:13px;color:var(--white);}
+  .nav-links{display:flex;gap:34px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+  .nav-links a:hover{color:var(--gold-1);}
+  .nav-cta{
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    border:1px solid var(--gold-2);padding:10px 22px;color:var(--gold-1);
+    transition:.25s;
+  }
+  .nav-cta:hover{background:var(--gold-2);color:var(--black);}
+  @media(max-width:840px){.nav-links{display:none;}}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:160px 28px 100px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% 0%, rgba(201,161,90,0.16), transparent 60%),
+      radial-gradient(ellipse 700px 700px at 85% 90%, rgba(201,161,90,0.08), transparent 60%);
+  }
+  .hero .ring-bg.r1{width:900px;height:900px;top:-360px;left:50%;transform:translateX(-50%);border-color:rgba(201,161,90,0.10);}
+  .hero .ring-bg.r2{width:640px;height:640px;bottom:-420px;right:-160px;border-color:rgba(201,161,90,0.14);}
+
+  .hero-logo{
+    width:128px;height:auto;margin-bottom:36px;
+    filter:drop-shadow(0 0 40px rgba(201,161,90,0.25));
+    animation:fadeUp 1s ease both;
+  }
+  .hero .eyebrow{animation:fadeUp 1s ease .1s both;margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(40px,7vw,88px);
+    animation:fadeUp 1s ease .2s both;
+    max-width:960px;
+  }
+  .hero h1 .gold{
+    background:var(--gold-metal);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .sub{
+    margin-top:26px;max-width:620px;
+    font-size:17px;color:var(--muted);line-height:1.7;
+    animation:fadeUp 1s ease .3s both;
+  }
+  .hero .date-badge{
+    margin-top:38px;display:inline-flex;gap:14px;align-items:center;
+    padding:14px 30px;border:1px solid var(--line);border-radius:999px;
+    font-family:'Montserrat',sans-serif;letter-spacing:0.18em;font-size:12.5px;
+    text-transform:uppercase;color:var(--gold-1);
+    animation:fadeUp 1s ease .4s both;
+  }
+  .hero .date-badge b{color:var(--white);font-weight:700;}
+  .hero .cta-row{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap;justify-content:center;animation:fadeUp 1s ease .5s both;}
+
+  .btn-primary{
+    font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:0.1em;font-size:13.5px;
+    text-transform:uppercase;background:var(--gold-metal);color:#241a05;
+    padding:18px 40px;border-radius:2px;
+    box-shadow:0 12px 34px -10px rgba(201,161,90,0.55);
+    transition:.3s transform ease, .3s box-shadow ease;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 44px -8px rgba(201,161,90,0.7);}
+  .btn-ghost{
+    font-family:'Montserrat',sans-serif;font-weight:600;letter-spacing:0.1em;font-size:13.5px;
+    text-transform:uppercase;color:var(--cream);
+    padding:18px 34px;border:1px solid rgba(242,237,225,0.28);border-radius:2px;
+    transition:.25s;
+  }
+  .btn-ghost:hover{border-color:var(--gold-2);color:var(--gold-1);}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ---------- stats strip ---------- */
+  .stats{
+    border-top:1px solid rgba(201,161,90,0.14);
+    border-bottom:1px solid rgba(201,161,90,0.14);
+    background:var(--charcoal);
+  }
+  .stats .wrap{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    padding:52px 28px;
+  }
+  .stat{text-align:center;padding:0 20px;position:relative;}
+  .stat:not(:last-child)::after{
+    content:'';position:absolute;right:0;top:8px;bottom:8px;width:1px;
+    background:rgba(201,161,90,0.18);
+  }
+  .stat .num{
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(28px,4vw,44px);
+    background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .stat .label{margin-top:10px;font-size:12.5px;letter-spacing:0.08em;color:var(--muted);line-height:1.6;text-transform:uppercase;}
+  @media(max-width:720px){.stats .wrap{grid-template-columns:1fr;gap:36px;}.stat:not(:last-child)::after{display:none;}.stat:not(:last-child){border-bottom:1px solid rgba(201,161,90,0.14);padding-bottom:32px;}}
+
+  /* ---------- section shell ---------- */
+  section{position:relative;padding:120px 0;}
+  .section-head{text-align:center;max-width:720px;margin:0 auto 64px;}
+  .section-head h2{font-size:clamp(28px,4.2vw,46px);margin-top:18px;}
+  .section-head p{margin-top:20px;font-size:16px;color:var(--muted);line-height:1.8;}
+
+  /* ---------- why section ---------- */
+  .why{background:linear-gradient(180deg,var(--black),var(--charcoal) 50%,var(--black));}
+  .why-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:70px;align-items:center;}
+  .why-copy .serif{font-size:26px;line-height:1.5;display:block;margin-bottom:22px;}
+  .why-copy p{color:var(--muted);line-height:1.85;font-size:15.5px;}
+  .why-list{display:flex;flex-direction:column;gap:0;}
+  .why-item{
+    display:flex;gap:22px;padding:26px 0;
+    border-bottom:1px solid rgba(201,161,90,0.14);
+  }
+  .why-item:first-child{padding-top:0;}
+  .why-item .n{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-size:34px;color:var(--gold-2);
+    flex-shrink:0;width:44px;
+  }
+  .why-item h3{font-size:16px;letter-spacing:0.05em;margin-bottom:8px;}
+  .why-item p{font-size:14.5px;color:var(--muted);line-height:1.7;font-family:'Inter',sans-serif;text-transform:none;}
+  @media(max-width:900px){.why-grid{grid-template-columns:1fr;gap:44px;}}
+
+  /* ---------- schedule ---------- */
+  .schedule{background:var(--black);}
+  .day-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  .day-card{
+    background:var(--charcoal);border:1px solid rgba(201,161,90,0.16);
+    padding:44px 38px;position:relative;overflow:hidden;
+  }
+  .day-card::before{
+    content:'';position:absolute;top:-100px;right:-100px;width:220px;height:220px;
+    border-radius:50%;border:1px solid rgba(201,161,90,0.18);
+  }
+  .day-tag{font-family:'Montserrat',sans-serif;letter-spacing:0.2em;font-size:12px;color:var(--gold-1);text-transform:uppercase;}
+  .day-date{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:var(--white);margin-top:8px;margin-bottom:30px;}
+  .timeline{display:flex;flex-direction:column;}
+  .t-item{display:flex;gap:18px;padding:16px 0;border-top:1px solid rgba(242,237,225,0.08);}
+  .t-item:first-child{border-top:none;}
+  .t-time{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.05em;color:var(--muted-2);flex-shrink:0;width:64px;padding-top:2px;}
+  .t-body h4{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14.5px;text-transform:uppercase;letter-spacing:0.03em;color:var(--cream);}
+  .t-body p{font-size:13.5px;color:var(--muted);margin-top:5px;line-height:1.6;}
+  @media(max-width:900px){.day-grid{grid-template-columns:1fr;}}
+
+  /* ---------- pricing ---------- */
+  .pricing{background:linear-gradient(180deg,var(--black),var(--charcoal-2));}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch;}
+  .price-card{
+    background:var(--charcoal);border:1px solid rgba(201,161,90,0.18);
+    padding:44px 34px;display:flex;flex-direction:column;
+    transition:.3s transform ease;
+  }
+  .price-card:hover{transform:translateY(-6px);}
+  .price-card.featured{
+    border-color:var(--gold-2);
+    background:linear-gradient(180deg,#1c1710,var(--charcoal) 60%);
+    position:relative;
+  }
+  .price-card.featured .tag{
+    position:absolute;top:0;right:34px;transform:translateY(-50%);
+    background:var(--gold-metal);color:#241a05;font-family:'Montserrat',sans-serif;
+    font-weight:700;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+    padding:8px 18px;
+  }
+  .price-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-1);}
+  .price-val{margin-top:18px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:var(--white);}
+  .price-val small{font-size:15px;font-weight:500;color:var(--muted);}
+  .price-desc{margin-top:12px;font-size:13.5px;color:var(--muted);line-height:1.6;min-height:40px;}
+  .price-feats{margin-top:28px;display:flex;flex-direction:column;gap:14px;flex-grow:1;}
+  .price-feats li{list-style:none;display:flex;gap:12px;font-size:14px;color:var(--cream);line-height:1.5;}
+  .price-feats li::before{content:'—';color:var(--gold-2);flex-shrink:0;}
+  .price-card .btn-ghost, .price-card .btn-primary{margin-top:34px;text-align:center;}
+  @media(max-width:960px){.price-grid{grid-template-columns:1fr;}}
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--black);}
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:14px;
+  }
+  .g-item{
+    background:var(--charcoal);border:1px solid rgba(201,161,90,0.14);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+  }
+  .g-item img,.g-item video{width:100%;height:100%;object-fit:cover;}
+  .g-item.tall{grid-row:span 2;}
+  .g-item.wide{grid-column:span 2;}
+  .g-placeholder{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted-2);text-align:center;padding:14px;font-family:'Montserrat',sans-serif;}
+  @media(max-width:900px){.gallery-grid{grid-template-columns:repeat(2,1fr);}.g-item.wide{grid-column:span 2;}}
+
+  /* ---------- testimonials ---------- */
+  .testimonials{background:var(--charcoal-2);}
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .test-card{
+    background:var(--charcoal);border:1px solid rgba(201,161,90,0.14);
+    padding:38px 32px;
+  }
+  .test-card .quote-mark{font-family:'Cormorant Garamond',serif;font-size:54px;color:var(--gold-2);line-height:0.6;display:block;margin-bottom:14px;}
+  .test-card p.quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.6;color:var(--cream);min-height:96px;}
+  .test-who{margin-top:24px;display:flex;align-items:center;gap:12px;}
+  .test-avatar{width:38px;height:38px;border-radius:50%;background:var(--gold-metal);flex-shrink:0;}
+  .test-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--white);}
+  .test-role{font-size:12px;color:var(--muted);margin-top:2px;}
+  @media(max-width:900px){.test-grid{grid-template-columns:1fr;}}
+
+  /* ---------- final cta ---------- */
+  .final-cta{
+    position:relative;text-align:center;padding:150px 28px;
+    background:var(--black);overflow:hidden;
+  }
+  .final-cta .ring-bg{width:760px;height:760px;top:50%;left:50%;transform:translate(-50%,-50%);border-color:rgba(201,161,90,0.14);}
+  .final-cta h2{font-size:clamp(30px,5vw,54px);max-width:760px;margin:20px auto 0;position:relative;}
+  .final-cta p{margin-top:22px;color:var(--muted);font-size:16px;position:relative;}
+  .final-cta .cta-row{margin-top:42px;display:flex;justify-content:center;gap:18px;flex-wrap:wrap;position:relative;}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid rgba(201,161,90,0.14);padding:56px 28px 40px;background:var(--black);}
+  .foot-wrap{max-width:var(--maxw);margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+  .foot-brand{display:flex;align-items:center;gap:14px;}
+  .foot-brand img{height:30px;}
+  .foot-brand span{font-family:'Montserrat',sans-serif;font-size:12.5px;letter-spacing:0.14em;color:var(--muted);text-transform:uppercase;}
+  .foot-links{display:flex;gap:28px;font-size:12.5px;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;}
+  .foot-links a:hover{color:var(--gold-1);}
+  .foot-copy{width:100%;text-align:center;margin-top:36px;font-size:11.5px;color:var(--muted-2);letter-spacing:0.06em;}
+
+  ::-webkit-scrollbar{width:9px;}
+  ::-webkit-scrollbar-track{background:var(--black);}
+  ::-webkit-scrollbar-thumb{background:var(--gold-3);}
+
+  @media(prefers-reduced-motion:reduce){
+    .hero-logo,.hero .eyebrow,.hero h1,.hero .sub,.hero .date-badge,.hero .cta-row{animation:none!important;}
+    .price-card:hover{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#top" class="nav-brand">
+      <img src="assets/logo.png" alt="Imersão Networking Experience">
+      <span>Networking Experience</span>
+    </a>
+    <div class="nav-links">
+      <a href="#por-que">O evento</a>
+      <a href="#programacao">Programação</a>
+      <a href="#valores">Ingressos</a>
+      <a href="#depoimentos">Depoimentos</a>
+    </div>
+    <a href="#valores" class="nav-cta">Garantir vaga</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="ring-bg r1"></div>
+    <div class="ring-bg r2"></div>
+    <img src="assets/logo.png" alt="Imersão Networking Experience — Diego Nubling" class="hero-logo">
+    <div class="eyebrow">Imersão Networking Experience &nbsp;·&nbsp; 2ª Edição</div>
+    <h1>Conexões que <span class="gold">geram oportunidades</span></h1>
+    <p class="sub">Dois dias reunindo empresários de resultado em Florianópolis para construir, ao vivo, as parcerias que uma vida inteira de tentativa e erro sozinho não constrói. Foi de um único insight, na 1ª edição, que participantes faturaram mais de R$100 mil na semana seguinte.</p>
+    <div class="date-badge">
+      <span>📍 Florianópolis, SC</span>
+      <span>&nbsp;|&nbsp;</span>
+      <span><b>25 e 26</b> de Setembro de 2026</span>
+    </div>
+    <div class="cta-row">
+      <a href="#valores" class="btn-primary">Quero minha vaga</a>
+      <a href="#programacao" class="btn-ghost">Ver a programação</a>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat">
+        <div class="num">R$120k+</div>
+        <div class="label">Em contratos fechados entre participantes<br>nos 15 dias após a 1ª edição</div>
+      </div>
+      <div class="stat">
+        <div class="num">7 dígitos</div>
+        <div class="label">Faturamento de parte das empresas<br>que já estiveram na mesma sala</div>
+      </div>
+      <div class="stat">
+        <div class="num">100% Curado</div>
+        <div class="label">Acesso restrito a empresários<br>com resultado comprovado</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ POR QUE ============ -->
+  <section class="why" id="por-que">
+    <div class="wrap why-grid">
+      <div class="why-copy">
+        <span class="serif">"Você não muda de patamar sozinho no escritório. Você muda de patamar na mesa certa."</span>
+        <p>A Networking Experience não é um evento de palco — é um ambiente desenhado para colocar você ao lado de quem já resolveu o problema que você ainda está tentando resolver. E ambiente, mais do que informação, é o que muda o jogo.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <span class="n">01</span>
+          <div>
+            <h3>O padrão da sala eleva o seu padrão</h3>
+            <p>Você absorve o nível de decisão de quem está por perto. Duas noites ao lado de quem já joga em outro campeonato recalibram o que você aceita para o seu próprio negócio.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="n">02</span>
+          <div>
+            <h3>Sociedades nascem fora do palco</h3>
+            <p>O churrasco, o passeio de barco e as conversas informais valem tanto quanto qualquer palestra — é ali que os melhores acordos da 1ª edição começaram.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="n">03</span>
+          <div>
+            <h3>Hotseat: seu problema, resolvido ao vivo</h3>
+            <p>Você leva um gargalo real do seu negócio para dentro da sala e recebe direcionamento na hora — de quem já passou por isso e escalou.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="n">04</span>
+          <div>
+            <h3>Sua marca pessoal na frente de quem decide</h3>
+            <p>Curadoria rígida do público significa uma coisa: quem está na sua frente pode ser cliente, sócio, fornecedor ou investidor — não plateia.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <span class="n">05</span>
+          <div>
+            <h3>Um insight pode valer mais que anos sozinho</h3>
+            <p>Não é sobre quantidade de conteúdo. É sobre a pergunta certa, na hora certa, feita pela pessoa certa — o tipo de coisa que só acontece perto de quem já chegou lá.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROGRAMAÇÃO ============ -->
+  <section class="schedule" id="programacao">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"><span class="rule"></span><span class="eyebrow">Os dois dias</span><span class="rule flip"></span></div>
+        <h2>Programação</h2>
+        <p>Dois dias construídos para gerar o máximo de proximidade, direcionamento prático e conexão real — sem enrolação de palco.</p>
+      </div>
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="day-tag">Dia 01</div>
+          <div class="day-date">Sexta, 25 de Setembro</div>
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-time">10h</div>
+              <div class="t-body"><h4>Abertura & Networking</h4><p>Recepção, apresentações e as primeiras conexões do evento.</p></div>
+            </div>
+            <div class="t-item">
+              <div class="t-time">Manhã</div>
+              <div class="t-body"><h4>Hotseat</h4><p>Direcionamento ao vivo para gargalos reais de quem está na sala.</p></div>
+            </div>
+            <div class="t-item">
+              <div class="t-time">Tarde</div>
+              <div class="t-body"><h4>Mastermind</h4><p>Palestras em formato de aula prática, direto ao ponto, sem enrolação.</p></div>
+            </div>
+            <div class="t-item">
+              <div class="t-time">Noite</div>
+              <div class="t-body"><h4>Churrasco Networking Experience</h4><p>O churrasco que quem já conhece o Diego Nubling sabe: sempre com a melhor casa de churrasco da região, bebida liberada a noite toda.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-tag">Dia 02</div>
+          <div class="day-date">Sábado, 26 de Setembro</div>
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-time">Manhã</div>
+              <div class="t-body"><h4>Networking contínuo</h4><p>A conversa da noite anterior continua — com quem realmente entrega resultado.</p></div>
+            </div>
+            <div class="t-item">
+              <div class="t-time">Dia</div>
+              <div class="t-body"><h4>Passeio exclusivo</h4><p>Passeio de lancha (ou atividade alternativa conforme o clima) só para quem participa dos dois dias — o momento mais valioso para branding e conexão.</p></div>
+            </div>
+            <div class="t-item">
+              <div class="t-time">A bordo</div>
+              <div class="t-body"><h4>Churrasco na lancha</h4><p>Bebida e churrasco embarcados, em um grupo reduzido dos melhores da sala.</p></div>
+            </div>
+            <div class="t-item">
+              <div class="t-time">Encerramento</div>
+              <div class="t-body"><h4>Fechamentos & despedida</h4><p>As últimas conversas — normalmente as que mais valem a pena.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALORES ============ -->
+  <section class="pricing" id="valores">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"><span class="rule"></span><span class="eyebrow">Vagas limitadas</span><span class="rule flip"></span></div>
+        <h2>Escolha sua experiência</h2>
+        <p>Curadoria rígida do público em todos os formatos — o que muda é o quanto você quer viver do evento.</p>
+      </div>
+      <div class="price-grid">
+
+        <div class="price-card">
+          <div class="price-name">Janta Networking</div>
+          <div class="price-val">R$247</div>
+          <div class="price-desc">Para quem quer entrar direto no principal encontro da noite.</div>
+          <ul class="price-feats">
+            <li>Acesso ao churrasco da noite do dia 25</li>
+            <li>Bebidas liberadas a noite toda (refrigerante, energético e água)</li>
+            <li>Ambiente de networking com os presentes</li>
+          </ul>
+          <a href="#" class="btn-ghost">Quero essa opção</a>
+        </div>
+
+        <div class="price-card featured">
+          <span class="tag">Mais escolhido</span>
+          <div class="price-name">Dia Completo</div>
+          <div class="price-val">R$297</div>
+          <div class="price-desc">O dia inteiro de imersão — do primeiro networking ao churrasco.</div>
+          <ul class="price-feats">
+            <li>Tudo do dia 25, das 10h até o fim do churrasco</li>
+            <li>Networking, hotseat e mastermind</li>
+            <li>Bebidas liberadas o dia todo, incluindo o churrasco</li>
+            <li>Coffee break incluso</li>
+            <li>Brinde exclusivo do evento</li>
+          </ul>
+          <a href="#" class="btn-primary">Quero essa opção</a>
+        </div>
+
+        <div class="price-card">
+          <div class="price-name">Experience Completa</div>
+          <div class="price-val">R$697</div>
+          <div class="price-desc">Os dois dias inteiros — para quem quer viver a experiência ao máximo.</div>
+          <ul class="price-feats">
+            <li>Tudo do Dia Completo (25/09)</li>
+            <li>Acesso ao dia 26 inteiro</li>
+            <li>Passeio de lancha exclusivo</li>
+            <li>Bebida e churrasco a bordo da lancha</li>
+          </ul>
+          <a href="#" class="btn-ghost">Quero essa opção</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALERIA 1ª EDIÇÃO ============ -->
+  <section class="gallery" id="galeria">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"><span class="rule"></span><span class="eyebrow">Registros reais</span><span class="rule flip"></span></div>
+        <h2>Como foi a 1ª edição</h2>
+        <p>Fotos e vídeos de quem já viveu a experiência.</p>
+      </div>
+      <!--
+        INSTRUÇÕES: troque cada <div class="g-item"> por uma tag <img> ou <video>
+        apontando para os arquivos reais da 1ª edição, salvos em /assets/galeria/.
+        Exemplo:
+          <div class="g-item wide"><img src="assets/galeria/foto-01.jpg" alt="Churrasco da 1ª edição"></div>
+          <div class="g-item"><video src="assets/galeria/video-01.mp4" muted autoplay loop playsinline></video></div>
+      -->
+      <div class="gallery-grid">
+        <div class="g-item wide"><div class="g-placeholder">Foto do churrasco<br>1ª edição</div></div>
+        <div class="g-item"><div class="g-placeholder">Foto do networking</div></div>
+        <div class="g-item tall"><div class="g-placeholder">Vídeo do hotseat</div></div>
+        <div class="g-item"><div class="g-placeholder">Foto do palco</div></div>
+        <div class="g-item"><div class="g-placeholder">Foto de grupo</div></div>
+        <div class="g-item wide"><div class="g-placeholder">Vídeo do passeio de barco</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DEPOIMENTOS ============ -->
+  <section class="testimonials" id="depoimentos">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"><span class="rule"></span><span class="eyebrow">Quem já viveu</span><span class="rule flip"></span></div>
+        <h2>Depoimentos da 1ª edição</h2>
+        <p>Substitua pelos depoimentos reais de quem participou.</p>
+      </div>
+      <!--
+        INSTRUÇÕES: troque o texto de cada .quote pelo depoimento real,
+        e o test-name / test-role pelo nome e empresa da pessoa.
+        Se tiver foto do participante, troque a div .test-avatar por
+        <img class="test-avatar" src="assets/depoimentos/nome.jpg">
+      -->
+      <div class="test-grid">
+        <div class="test-card">
+          <span class="quote-mark">“</span>
+          <p class="quote">Depoimento real do participante sobre o impacto do evento na sua vida ou negócio.</p>
+          <div class="test-who">
+            <div class="test-avatar"></div>
+            <div>
+              <div class="test-name">Nome do Participante</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <span class="quote-mark">“</span>
+          <p class="quote">Depoimento real do participante sobre o impacto do evento na sua vida ou negócio.</p>
+          <div class="test-who">
+            <div class="test-avatar"></div>
+            <div>
+              <div class="test-name">Nome do Participante</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <span class="quote-mark">“</span>
+          <p class="quote">Depoimento real do participante sobre o impacto do evento na sua vida ou negócio.</p>
+          <div class="test-who">
+            <div class="test-avatar"></div>
+            <div>
+              <div class="test-name">Nome do Participante</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="final-cta">
+    <div class="ring-bg"></div>
+    <div class="eyebrow" style="position:relative;">25 e 26 de Setembro · Florianópolis</div>
+    <h2>A mesa certa muda o jogo.<br>A cadeira é sua — se você chegar antes.</h2>
+    <p>Vagas limitadas para manter a curadoria do público. Garanta a sua antes que a lista feche.</p>
+    <div class="cta-row">
+      <a href="#valores" class="btn-primary">Garantir minha vaga agora</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-wrap">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Networking Experience">
+      <span>Diego Nubling</span>
+    </div>
+    <div class="foot-links">
+      <a href="#por-que">O evento</a>
+      <a href="#programacao">Programação</a>
+      <a href="#valores">Ingressos</a>
+      <a href="https://instagram.com/eudiegonubling" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="foot-copy">© 2026 Imersão Networking Experience — Diego Nubling. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+</body>
+</html>
