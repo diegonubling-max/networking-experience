@@ -297,7 +297,7 @@
 
   /* ---------- testimonials ---------- */
   .testimonials{background:var(--charcoal-2);}
-  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .test-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
   .test-card{
     background:var(--charcoal);border:1px solid rgba(201,161,90,0.14);
     overflow:hidden;
@@ -313,7 +313,9 @@
   .test-who{padding:20px 22px;display:flex;align-items:center;gap:12px;}
   .test-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--white);}
   .test-role{font-size:12px;color:var(--muted);margin-top:2px;}
-  @media(max-width:900px){.test-grid{grid-template-columns:1fr;}}
+  @media(max-width:1080px){.test-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:820px){.test-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:520px){.test-grid{grid-template-columns:1fr;}}
 
   /* ---------- final cta ---------- */
   .final-cta{
@@ -504,6 +506,42 @@
     </div>
   </section>
 
+  <!-- ============ GALERIA 1ª EDIÇÃO ============ -->
+  <section class="gallery" id="galeria">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="divider"><span class="rule"></span><span class="eyebrow">Registros reais</span><span class="rule flip"></span></div>
+        <h2>Como foi a 1ª edição</h2>
+        <p>Fotos e vídeos de quem já viveu a experiência.</p>
+      </div>
+      <!--
+        INSTRUÇÕES:
+        1) Vídeo de abertura (takes/recap editado da 1ª edição): troque o
+           conteúdo de .recap-video pela tag <video>, apontando para o arquivo
+           final em /assets/galeria/recap-1a-edicao.mp4. Exemplo:
+             <div class="recap-video">
+               <span class="recap-tag">Como foi a 1ª edição</span>
+               <video src="assets/galeria/recap-1a-edicao.mp4" controls poster="assets/galeria/recap-capa.jpg"></video>
+             </div>
+        2) Grid de fotos: troque cada <div class="g-item"> por uma tag <img>
+           apontando para as fotos reais, salvas em /assets/galeria/. Exemplo:
+             <div class="g-item wide"><img src="assets/galeria/foto-01.jpg" alt="Churrasco da 1ª edição"></div>
+      -->
+      <div class="recap-video">
+        <span class="recap-tag">Como foi a 1ª edição</span>
+        <video src="assets/galeria/recap-1a-edicao.mp4" autoplay muted loop controls playsinline></video>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item wide"><div class="g-placeholder">Foto do churrasco<br>1ª edição</div></div>
+        <div class="g-item"><div class="g-placeholder">Foto do networking</div></div>
+        <div class="g-item tall"><div class="g-placeholder">Foto do hotseat</div></div>
+        <div class="g-item"><div class="g-placeholder">Foto do palco</div></div>
+        <div class="g-item"><div class="g-placeholder">Foto de grupo</div></div>
+        <div class="g-item wide"><div class="g-placeholder">Foto do passeio de barco</div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ VALORES ============ -->
   <section class="pricing" id="valores">
     <div class="wrap">
@@ -558,42 +596,6 @@
     </div>
   </section>
 
-  <!-- ============ GALERIA 1ª EDIÇÃO ============ -->
-  <section class="gallery" id="galeria">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="divider"><span class="rule"></span><span class="eyebrow">Registros reais</span><span class="rule flip"></span></div>
-        <h2>Como foi a 1ª edição</h2>
-        <p>Fotos e vídeos de quem já viveu a experiência.</p>
-      </div>
-      <!--
-        INSTRUÇÕES:
-        1) Vídeo de abertura (takes/recap editado da 1ª edição): troque o
-           conteúdo de .recap-video pela tag <video>, apontando para o arquivo
-           final em /assets/galeria/recap-1a-edicao.mp4. Exemplo:
-             <div class="recap-video">
-               <span class="recap-tag">Como foi a 1ª edição</span>
-               <video src="assets/galeria/recap-1a-edicao.mp4" controls poster="assets/galeria/recap-capa.jpg"></video>
-             </div>
-        2) Grid de fotos: troque cada <div class="g-item"> por uma tag <img>
-           apontando para as fotos reais, salvas em /assets/galeria/. Exemplo:
-             <div class="g-item wide"><img src="assets/galeria/foto-01.jpg" alt="Churrasco da 1ª edição"></div>
-      -->
-      <div class="recap-video">
-        <span class="recap-tag">Como foi a 1ª edição</span>
-        <video src="assets/galeria/recap-1a-edicao.mp4" autoplay muted loop controls playsinline></video>
-      </div>
-      <div class="gallery-grid">
-        <div class="g-item wide"><div class="g-placeholder">Foto do churrasco<br>1ª edição</div></div>
-        <div class="g-item"><div class="g-placeholder">Foto do networking</div></div>
-        <div class="g-item tall"><div class="g-placeholder">Foto do hotseat</div></div>
-        <div class="g-item"><div class="g-placeholder">Foto do palco</div></div>
-        <div class="g-item"><div class="g-placeholder">Foto de grupo</div></div>
-        <div class="g-item wide"><div class="g-placeholder">Foto do passeio de barco</div></div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ DEPOIMENTOS ============ -->
   <section class="testimonials" id="depoimentos">
     <div class="wrap">
@@ -603,38 +605,79 @@
         <p>Vídeos reais de quem participou.</p>
       </div>
       <!--
-        INSTRUÇÕES: troque o conteúdo de cada .test-video pela tag <video>
-        apontando para o depoimento real, salvo em /assets/depoimentos/.
-        Troque também test-name / test-role pelo nome e empresa da pessoa.
-        Exemplo:
-          <div class="test-video">
-            <video src="assets/depoimentos/nome-01.mp4" controls poster="assets/depoimentos/nome-01-capa.jpg"></video>
-          </div>
+        INSTRUÇÕES: os vídeos já estão referenciados como assets/depoimentos/01.mp4
+        a 08.mp4 (ajuste a extensão se os arquivos forem .mov). Troque
+        test-name / test-role pelo nome e cargo/empresa reais de cada pessoa.
       -->
       <div class="test-grid">
         <div class="test-card">
-          <div class="test-video"><div class="g-placeholder">Vídeo depoimento</div></div>
+          <div class="test-video"><video src="assets/depoimentos/01.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Nome do Participante</div>
+              <div class="test-name">Nome do Participante 01</div>
               <div class="test-role">Cargo, Empresa</div>
             </div>
           </div>
         </div>
         <div class="test-card">
-          <div class="test-video"><div class="g-placeholder">Vídeo depoimento</div></div>
+          <div class="test-video"><video src="assets/depoimentos/02.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Nome do Participante</div>
+              <div class="test-name">Nome do Participante 02</div>
               <div class="test-role">Cargo, Empresa</div>
             </div>
           </div>
         </div>
         <div class="test-card">
-          <div class="test-video"><div class="g-placeholder">Vídeo depoimento</div></div>
+          <div class="test-video"><video src="assets/depoimentos/03.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Nome do Participante</div>
+              <div class="test-name">Nome do Participante 03</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-video"><video src="assets/depoimentos/04.mp4" controls playsinline></video></div>
+          <div class="test-who">
+            <div>
+              <div class="test-name">Nome do Participante 04</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-video"><video src="assets/depoimentos/05.mp4" controls playsinline></video></div>
+          <div class="test-who">
+            <div>
+              <div class="test-name">Nome do Participante 05</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-video"><video src="assets/depoimentos/06.mp4" controls playsinline></video></div>
+          <div class="test-who">
+            <div>
+              <div class="test-name">Nome do Participante 06</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-video"><video src="assets/depoimentos/07.mp4" controls playsinline></video></div>
+          <div class="test-who">
+            <div>
+              <div class="test-name">Nome do Participante 07</div>
+              <div class="test-role">Cargo, Empresa</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card">
+          <div class="test-video"><video src="assets/depoimentos/08.mp4" controls playsinline></video></div>
+          <div class="test-who">
+            <div>
+              <div class="test-name">Nome do Participante 08</div>
               <div class="test-role">Cargo, Empresa</div>
             </div>
           </div>
