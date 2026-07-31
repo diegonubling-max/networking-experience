@@ -88,7 +88,7 @@
     padding:16px 28px;max-width:var(--maxw);margin:0 auto;
   }
   .nav-brand{display:flex;align-items:center;gap:12px;}
-  .nav-brand span{font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:0.12em;font-size:13px;color:var(--white);}
+  .nav-brand img{height:36px;width:auto;}
   .nav-links{display:flex;gap:34px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
   .nav-links a:hover{color:var(--gold-1);}
   .nav-cta{
@@ -352,7 +352,7 @@
 <header>
   <nav>
     <a href="#top" class="nav-brand">
-      <span>Networking Experience</span>
+      <img src="assets/logo.png" alt="Networking Experience">
     </a>
     <div class="nav-links">
       <a href="#por-que">O evento</a>
@@ -372,7 +372,7 @@
     <div class="ring-bg r2"></div>
     <div class="eyebrow">Imersão Networking Experience &nbsp;·&nbsp; 2ª Edição</div>
     <h1>Conexões que <span class="gold">geram oportunidades</span></h1>
-    <p class="sub">Dois dias reunindo empresários de resultado em Florianópolis para construir, ao vivo, as parcerias que uma vida inteira de tentativa e erro sozinho não constrói. Foi de um único insight, na 1ª edição, que participantes faturaram mais de R$100 mil na semana seguinte.</p>
+    <p class="sub">Dois dias reunindo empresários de resultado em Florianópolis para construir, ao vivo, as parcerias que uma vida inteira de tentativa e erro sozinho não constrói. Foi de um único insight, na 1ª edição, que participantes faturaram mais de R$ 100 mil na semana seguinte.</p>
     <div class="date-badge">
       <span>📍 Florianópolis, SC</span>
       <span>&nbsp;|&nbsp;</span>
@@ -388,7 +388,7 @@
   <div class="stats">
     <div class="wrap">
       <div class="stat">
-        <div class="num">R$ 500k+</div>
+        <div class="num">R$ 120k+</div>
         <div class="label">Em contratos fechados entre participantes<br>nos 15 dias após a 1ª edição</div>
       </div>
       <div class="stat">
@@ -516,28 +516,19 @@
       </div>
       <!--
         INSTRUÇÕES:
-        1) Vídeo de abertura (takes/recap editado da 1ª edição): troque o
-           conteúdo de .recap-video pela tag <video>, apontando para o arquivo
-           final em /assets/galeria/recap-1a-edicao.mp4. Exemplo:
-             <div class="recap-video">
-               <span class="recap-tag">Como foi a 1ª edição</span>
-               <video src="assets/galeria/recap-1a-edicao.mp4" controls poster="assets/galeria/recap-capa.jpg"></video>
+        1) Vídeo de abertura (takes/recap editado da 1ª edição): já está
+           configurado abaixo, apontando para /assets/galeria/recap-1a-edicao.mp4.
+        2) Grid de fotos: quando tiver as fotos reais da 1ª edição, adicione
+           aqui um <div class="gallery-grid"> com um <div class="g-item"> por
+           foto, salva em /assets/galeria/. Exemplo:
+             <div class="gallery-grid">
+               <div class="g-item wide"><img src="assets/galeria/foto-01.jpg" alt="Churrasco da 1ª edição"></div>
+               <div class="g-item"><img src="assets/galeria/foto-02.jpg" alt="Networking"></div>
              </div>
-        2) Grid de fotos: troque cada <div class="g-item"> por uma tag <img>
-           apontando para as fotos reais, salvas em /assets/galeria/. Exemplo:
-             <div class="g-item wide"><img src="assets/galeria/foto-01.jpg" alt="Churrasco da 1ª edição"></div>
       -->
       <div class="recap-video">
         <span class="recap-tag">Como foi a 1ª edição</span>
         <video src="assets/galeria/recap-1a-edicao.mp4" autoplay muted loop controls playsinline></video>
-      </div>
-      <div class="gallery-grid">
-        <div class="g-item wide"><div class="g-placeholder">Foto do churrasco<br>1ª edição</div></div>
-        <div class="g-item"><div class="g-placeholder">Foto do networking</div></div>
-        <div class="g-item tall"><div class="g-placeholder">Foto do hotseat</div></div>
-        <div class="g-item"><div class="g-placeholder">Foto do palco</div></div>
-        <div class="g-item"><div class="g-placeholder">Foto de grupo</div></div>
-        <div class="g-item wide"><div class="g-placeholder">Foto do passeio de barco</div></div>
       </div>
     </div>
   </section>
@@ -615,7 +606,7 @@
           <div class="test-video"><video src="assets/depoimentos/01.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">O que eles disseram do evento</div>
+              <div class="test-name">Nome do Participante 01</div>
               <div class="test-role">Participante · 1ª Edição</div>
             </div>
           </div>
@@ -624,7 +615,7 @@
           <div class="test-video"><video src="assets/depoimentos/02.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Lucas Bertoncelli</div>
+              <div class="test-name">Nome do Participante 02</div>
               <div class="test-role">Participante · 1ª Edição</div>
             </div>
           </div>
@@ -633,7 +624,7 @@
           <div class="test-video"><video src="assets/depoimentos/03.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Lucas Oliveira</div>
+              <div class="test-name">Nome do Participante 03</div>
               <div class="test-role">Participante · 1ª Edição</div>
             </div>
           </div>
@@ -642,7 +633,7 @@
           <div class="test-video"><video src="assets/depoimentos/04.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Cibele e Lucas</div>
+              <div class="test-name">Nome do Participante 04</div>
               <div class="test-role">Participante · 1ª Edição</div>
             </div>
           </div>
@@ -651,7 +642,7 @@
           <div class="test-video"><video src="assets/depoimentos/05.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Gabriel Manfron5</div>
+              <div class="test-name">Nome do Participante 05</div>
               <div class="test-role">Participante · 1ª Edição</div>
             </div>
           </div>
@@ -660,7 +651,7 @@
           <div class="test-video"><video src="assets/depoimentos/06.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Gilberto Borba</div>
+              <div class="test-name">Nome do Participante 06</div>
               <div class="test-role">Participante · 1ª Edição</div>
             </div>
           </div>
@@ -669,10 +660,9 @@
           <div class="test-video"><video src="assets/depoimentos/07.mp4" controls playsinline></video></div>
           <div class="test-who">
             <div>
-              <div class="test-name">Tamires Cezaro</div>
+              <div class="test-name">Nome do Participante 07</div>
               <div class="test-role">Participante · 1ª Edição</div>
             </div>
-          </div>
           </div>
         </div>
       </div>
