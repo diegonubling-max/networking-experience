@@ -235,7 +235,7 @@
 
   /* ---------- pricing ---------- */
   .pricing{background:linear-gradient(180deg,var(--black),var(--charcoal-2));}
-  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:stretch;}
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch;max-width:760px;margin:0 auto;}
   .price-card{
     background:var(--charcoal);border:1px solid rgba(201,161,90,0.18);
     padding:44px 34px;display:flex;flex-direction:column;
@@ -485,16 +485,16 @@
           <div class="day-date">Sábado, 26 de Setembro</div>
           <div class="timeline">
             <div class="t-item">
+              <div class="t-time">10h</div>
+              <div class="t-body"><h4>Networking contínuo</h4><p>A conversa do dia anterior continua — com quem realmente entrega resultado.</p></div>
+            </div>
+            <div class="t-item">
               <div class="t-time">Manhã</div>
-              <div class="t-body"><h4>Networking contínuo</h4><p>A conversa da noite anterior continua — com quem realmente entrega resultado.</p></div>
+              <div class="t-body"><h4>Hotseat</h4><p>Mais uma rodada de direcionamento ao vivo para gargalos reais de quem está na sala.</p></div>
             </div>
             <div class="t-item">
-              <div class="t-time">Dia</div>
-              <div class="t-body"><h4>Passeio exclusivo</h4><p>Passeio de lancha (ou atividade alternativa conforme o clima) só para quem participa dos dois dias — o momento mais valioso para branding e conexão.</p></div>
-            </div>
-            <div class="t-item">
-              <div class="t-time">A bordo</div>
-              <div class="t-body"><h4>Churrasco na lancha</h4><p>Bebida e churrasco embarcados, em um grupo reduzido dos melhores da sala.</p></div>
+              <div class="t-time">Tarde</div>
+              <div class="t-body"><h4>Mastermind</h4><p>Palestras em formato de aula prática, direto ao ponto, sem enrolação.</p></div>
             </div>
             <div class="t-item">
               <div class="t-time">Encerramento</div>
@@ -541,24 +541,16 @@
         <h2>Escolha sua experiência</h2>
         <p>Curadoria rígida do público em todos os formatos — o que muda é o quanto você quer viver do evento.</p>
       </div>
+      <div style="max-width:760px;margin:0 auto 40px;text-align:center;background:linear-gradient(135deg, rgba(232,205,142,0.14), rgba(139,105,20,0.08));border:1px solid rgba(201,161,90,0.4);padding:18px 24px;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;font-size:15px;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;">Valores do 1º Lote — válidos até 20/08</div>
+        <div style="margin-top:8px;font-size:13px;color:var(--muted);">2º Lote: até 10/09 &nbsp;·&nbsp; 3º Lote: até o dia do evento (valores reajustados)</div>
+      </div>
       <div class="price-grid">
-
-        <div class="price-card">
-          <div class="price-name">Janta Networking</div>
-          <div class="price-val">R$ 247</div>
-          <div class="price-desc">Para quem quer entrar direto no principal encontro da noite.</div>
-          <ul class="price-feats">
-            <li>Acesso ao churrasco da noite do dia 25</li>
-            <li>Bebidas liberadas a noite toda (refrigerante, energético e água)</li>
-            <li>Ambiente de networking com os presentes</li>
-          </ul>
-          <a href="#" class="btn-ghost">Quero essa opção</a>
-        </div>
 
         <div class="price-card featured">
           <span class="tag">Mais escolhido</span>
           <div class="price-name">Dia Completo</div>
-          <div class="price-val">R$ 297</div>
+          <div class="price-val">R$ 297 <small>1º lote</small></div>
           <div class="price-desc">O dia inteiro de imersão — do primeiro networking ao churrasco.</div>
           <ul class="price-feats">
             <li>Tudo do dia 25, das 10h até o fim do churrasco</li>
@@ -572,13 +564,13 @@
 
         <div class="price-card">
           <div class="price-name">Experience Completa</div>
-          <div class="price-val">R$ 697</div>
-          <div class="price-desc">Os dois dias inteiros — para quem quer viver a experiência ao máximo.</div>
+          <div class="price-val">R$ 397 <small>1º lote</small></div>
+          <div class="price-desc">Os dois dias inteiros de imersão e networking.</div>
           <ul class="price-feats">
             <li>Tudo do Dia Completo (25/09)</li>
-            <li>Acesso ao dia 26 inteiro</li>
-            <li>Passeio de lancha exclusivo</li>
-            <li>Bebida e churrasco a bordo da lancha</li>
+            <li>Acesso ao dia 26 inteiro, a partir das 10h</li>
+            <li>Hotseat e mastermind também no dia 26</li>
+            <li>Coffee break e bebidas liberadas nos dois dias</li>
           </ul>
           <a href="#" class="btn-ghost">Quero essa opção</a>
         </div>
