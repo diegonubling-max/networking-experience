@@ -261,6 +261,29 @@
   .price-feats li{list-style:none;display:flex;gap:12px;font-size:14px;color:var(--cream);line-height:1.5;}
   .price-feats li::before{content:'—';color:var(--gold-2);flex-shrink:0;}
   .price-card .btn-ghost, .price-card .btn-primary{margin-top:34px;text-align:center;}
+
+  /* ---------- pré-venda: contador + botão desativado ---------- */
+  .countdown-wrap{display:flex;gap:14px;justify-content:center;margin-top:16px;flex-wrap:wrap;}
+  .countdown-box{
+    background:rgba(0,0,0,0.35);border:1px solid rgba(201,161,90,0.3);
+    padding:10px 16px;min-width:64px;text-align:center;
+  }
+  .countdown-box .cd-num{
+    font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;
+    background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .countdown-box .cd-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+  .btn-soon{position:relative;display:inline-block;}
+  .btn-soon .btn-primary, .btn-soon .btn-ghost{
+    pointer-events:none;opacity:0.5;filter:grayscale(0.3);
+  }
+  .btn-soon .soon-badge{
+    position:absolute;top:-11px;right:-10px;z-index:2;
+    background:var(--gold-metal);color:#241a05;
+    font-family:'Montserrat',sans-serif;font-weight:800;font-size:10px;letter-spacing:0.08em;
+    text-transform:uppercase;padding:4px 10px;white-space:nowrap;
+    box-shadow:0 4px 12px -2px rgba(0,0,0,0.5);
+  }
   @media(max-width:960px){.price-grid{grid-template-columns:1fr;}}
 
   /* ---------- gallery ---------- */
@@ -541,9 +564,15 @@
         <h2>Escolha sua experiência</h2>
         <p>Curadoria rígida do público em todos os formatos — o que muda é o quanto você quer viver do evento.</p>
       </div>
-      <div style="max-width:760px;margin:0 auto 40px;text-align:center;background:linear-gradient(135deg, rgba(232,205,142,0.14), rgba(139,105,20,0.08));border:1px solid rgba(201,161,90,0.4);padding:18px 24px;">
-        <div style="font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;font-size:15px;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;">Valores do 1º Lote — válidos até 20/08</div>
-        <div style="margin-top:8px;font-size:13px;color:var(--muted);">2º Lote: até 10/09 &nbsp;·&nbsp; 3º Lote: até o dia do evento (valores reajustados)</div>
+      <div style="max-width:760px;margin:0 auto 40px;text-align:center;background:linear-gradient(135deg, rgba(232,205,142,0.14), rgba(139,105,20,0.08));border:1px solid rgba(201,161,90,0.4);padding:22px 24px;">
+        <div style="font-family:'Montserrat',sans-serif;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;font-size:15px;background:var(--gold-metal);-webkit-background-clip:text;background-clip:text;color:transparent;">Pré-venda · Valores do 1º Lote — válidos até 20/08</div>
+        <div style="margin-top:8px;font-size:13px;color:var(--muted);">Vendas do 1º Lote abrem em 08/08 &nbsp;·&nbsp; 2º Lote: até 10/09 &nbsp;·&nbsp; 3º Lote: até o dia do evento</div>
+        <div class="countdown-wrap" id="countdown">
+          <div class="countdown-box"><div class="cd-num" id="cd-days">--</div><div class="cd-label">dias</div></div>
+          <div class="countdown-box"><div class="cd-num" id="cd-hours">--</div><div class="cd-label">horas</div></div>
+          <div class="countdown-box"><div class="cd-num" id="cd-mins">--</div><div class="cd-label">min</div></div>
+          <div class="countdown-box"><div class="cd-num" id="cd-secs">--</div><div class="cd-label">seg</div></div>
+        </div>
       </div>
       <div class="price-grid">
 
@@ -559,7 +588,10 @@
             <li>Coffee break incluso</li>
             <li>Brinde exclusivo do evento</li>
           </ul>
-          <a href="#" class="btn-primary">Quero essa opção</a>
+          <div class="btn-soon">
+            <span class="soon-badge">Em breve</span>
+            <a href="#" class="btn-primary" aria-disabled="true" tabindex="-1">Quero essa opção</a>
+          </div>
         </div>
 
         <div class="price-card">
@@ -572,7 +604,10 @@
             <li>Hotseat e mastermind também no dia 26</li>
             <li>Coffee break e bebidas liberadas nos dois dias</li>
           </ul>
-          <a href="#" class="btn-ghost">Quero essa opção</a>
+          <div class="btn-soon">
+            <span class="soon-badge">Em breve</span>
+            <a href="#" class="btn-ghost" aria-disabled="true" tabindex="-1">Quero essa opção</a>
+          </div>
         </div>
 
       </div>
@@ -695,5 +730,31 @@
   </div>
 </footer>
 
+<script>
+  (function(){
+    var target = new Date("2026-08-08T00:00:00-03:00").getTime();
+    var elDays = document.getElementById('cd-days');
+    var elHours = document.getElementById('cd-hours');
+    var elMins = document.getElementById('cd-mins');
+    var elSecs = document.getElementById('cd-secs');
+    function pad(n){ return String(n).padStart(2,'0'); }
+    function tick(){
+      var now = new Date().getTime();
+      var diff = target - now;
+      if (diff <= 0){
+        elDays.textContent = '00'; elHours.textContent = '00';
+        elMins.textContent = '00'; elSecs.textContent = '00';
+        return;
+      }
+      var d = Math.floor(diff / (1000*60*60*24));
+      var h = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+      var m = Math.floor((diff % (1000*60*60)) / (1000*60));
+      var s = Math.floor((diff % (1000*60)) / 1000);
+      elDays.textContent = pad(d); elHours.textContent = pad(h);
+      elMins.textContent = pad(m); elSecs.textContent = pad(s);
+    }
+    if (elDays) { tick(); setInterval(tick, 1000); }
+  })();
+</script>
 </body>
 </html>
